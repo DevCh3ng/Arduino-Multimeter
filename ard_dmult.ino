@@ -1,27 +1,22 @@
 #include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
-
 const byte ANALOG_IN_PIN    = A0;
 const byte SENSOR_PIN       = A1;
 const byte CONTINUITY_PIN   = A2;
 const byte BUTTON_PIN       = 3;
 const byte SPEAKER_PIN      = 4;
 const byte BACKLIGHT_PIN    = 13;
-
 const float R1_VOLTAGE_DIVIDER = 330.0;
 const float R2_VOLTAGE_DIVIDER = 220.0;
 const float REFERENCE_VOLTAGE  = 5.0;
 const float R_REF_RESISTANCE   = 10000.0;
 const float ADC_MAX_VALUE      = 1023.0;
-
-const int CONTINUITY_THRESHOLD = 1010; // Adjust based on your circuit (LOW value typically means continuity)
+const int CONTINUITY_THRESHOLD = 1010; // > 1000 is typical for continuity
 const unsigned int SPEAKER_FREQ = 1000;
 const int CONTINUITY_READ_COUNT = 5;
 const int CONTINUITY_READ_DELAY = 2;
-
-const unsigned long DEBOUNCE_DELAY = 50;
-
-const byte LCD_ADDR = 0x27;
+const unsigned long DEBOUNCE_DELAY = 50; // for the button delay
+const byte LCD_ADDR = 0x27; // change LCD Address here
 const byte LCD_COLS = 16;
 const byte LCD_ROWS = 2;
 LiquidCrystal_I2C lcd(LCD_ADDR, LCD_COLS, LCD_ROWS);
@@ -78,8 +73,10 @@ void loop() {
     noTone(SPEAKER_PIN);
     previousMode = currentMode;
   }
-
-  switch (currentMode) {
+  /*
+    mode switching (home -> V -> R -> C -> home -> ...)
+  */
+  switch (currentMode) {   
     case MODE_MENU:
       displayMenu();
       break;
@@ -167,7 +164,10 @@ void measureResistance() {
   lcd.setCursor(0, 0);
   lcd.print(F("Resistance:"));
   lcd.setCursor(0, 1);
-  if (R < 0) {
+  /*
+    Range splitting
+  */
+  if (R < 0) { 
     lcd.print(F("OL         "));
   } else if (R > 1000000) {
     lcd.print(R / 1000000.0, 2);
@@ -191,7 +191,7 @@ void checkContinuity() {
   lcd.print(F("Continuity:"));
   lcd.setCursor(0, 1);
 
-  if (sensorValue > CONTINUITY_THRESHOLD) { // Low value assumed for continuity
+  if (sensorValue > CONTINUITY_THRESHOLD) { 
     tone(SPEAKER_PIN, SPEAKER_FREQ);
     lcd.print(F("Connected  "));
   } else {
