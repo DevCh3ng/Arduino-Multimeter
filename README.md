@@ -25,8 +25,9 @@ This project is an Arduino-based multimeter design to measure basic electronic h
     git clone https://github.com/yourusername/Arduino-Multimeter.git
     ```
 2. Open the project in the Arduino IDE.
-3. Install any required libraries. 
-4. Upload the code to your Arduino board.
+3. Run the 'i2c_scanner' to check LCD address. (typically 0x27)
+4. Install any required libraries. 
+5. Upload the code to your Arduino board.
 
 ## Contributing
 
