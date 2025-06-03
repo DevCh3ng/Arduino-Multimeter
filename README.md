@@ -68,7 +68,7 @@ Here are some images of the Arduino Multimeter in action:
 
 *Current Screen*
 
-![Digital_Thingy](Image/2d.png)
+![Digital_Thingy](Images/2d.png)
 
 *Digital Layout*
 <style type="text/css">
