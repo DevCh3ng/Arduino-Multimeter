@@ -33,13 +33,12 @@ This project is an Arduino-based multimeter design to measure basic electronic h
 
 Contributions are welcome! Feel free to submit issues or pull requests to improve the project.
 
-## Disclaimer
-
-The circuit diagram is not available at the moment, but in the future I might put it up. 
-
 ## Future
 
 Cable management and need for proper housing
+## Extra
+
+Inside the extra folder there are videos on how to operate it and made a concise documentation on this project
 
 ## Project Images
 
