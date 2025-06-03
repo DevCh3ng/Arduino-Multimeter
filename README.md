@@ -17,6 +17,7 @@ This project is an Arduino-based multimeter design to measure basic electronic h
 - Wires and connectors
 - Breadboard or PCB
 - Button
+- ACS712 Hall Effect Sensor 
 
 ## Installation
 
@@ -38,29 +39,39 @@ The circuit diagram is not available at the moment, but in the future I might pu
 
 ## Future
 
-Capability to measure current using AC712 Hall effect sensor.
-
+Cable management and need for proper housing
 
 ## Project Images
 
 Here are some images of the Arduino Multimeter in action:
 
-![Arduino Multimeter](Images/Main.jpeg)
+![Arduino Above](Images/Done.png)
 
-*Selection Screen.*
+*Finish Build* 
 
-![Voltage](Images/Voltage.jpeg)
+![Main Menu](Images/Main.png)
+
+*Selection Screen*
+
+![Voltage](Images/Voltage.png)
 
 *Voltage Screen*
 
-![Resistance](Images/Resistance.jpeg)
+![Resistance](Images/Resistance.png)
 
 *Resistance Screen*
 
-![Continuity](Images/Continuity.jpeg)
+![Continuity](Images/Continuity.png)
 
 *Continuity Screen*
 
+![Current](Images/Current.png)
+
+*Current Screen*
+
+![Digital_Thingy](Image/2d.png)
+
+*Digital Layout*
 <style type="text/css">
     img {
         width: 300px
